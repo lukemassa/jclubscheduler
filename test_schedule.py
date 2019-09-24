@@ -4,6 +4,7 @@ import unittest
 from datetime import date
 
 from schedule import Jclub
+import copy
 
 
 class TestAlert(unittest.TestCase):
@@ -13,10 +14,20 @@ class TestAlert(unittest.TestCase):
 
         self.date = date(2019, 9, 13) # Random Thursday
 
-    def _day_of_week_to_date(self):
-        pass
+    def _day_of_week_to_date(self, day_of_week):
+
+        if day_of_week == "ThursdayOfJclub":
+            return copy.copy(self.date)
+
 
     def test_day_of_week_to_date(self):
+
+        def test_one(day_of_week, expected_day):
+            date = self._day_of_week_to_date(day_of_week)
+            self.assertEqual(expected_day, date.day)
+
+        test_one("ThursdayOfJclub", 13)
+
 
 
     def test_get_action_in_week(self):
