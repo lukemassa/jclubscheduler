@@ -18,6 +18,7 @@ class TestAlert(unittest.TestCase):
 
         if day_of_week == "ThursdayOfJclub":
             return copy.copy(self.date)
+        date = self.date.day
 
 
     def test_day_of_week_to_date(self):
